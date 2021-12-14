@@ -170,7 +170,7 @@ if (millis() - getDataTimer >= 2000){
       lcd.setCursor(15-i, 0);
       lcd.write(0);
     }
-    if(numOfChar!=8){
+    if(numOfChar!=8 && numOfChar!=0){
       lcd.setCursor(15-i, 0);
       lcd.write(diff);
     }
