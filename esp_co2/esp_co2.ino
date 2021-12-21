@@ -91,7 +91,7 @@ void setup() {
 }
 
 void loop() {
-if (millis() - getDataTimer >= 2000){
+if (millis() - getDataTimer >= 1000){
   //lcd.clear();
     if (! bme.performReading()) {
       Serial.println("Failed to perform reading :(");
@@ -126,7 +126,7 @@ if (millis() - getDataTimer >= 2000){
     Serial.print("CO2 (ppm): ");                      
     Serial.println(CO2);                                
 
-    int8_t Temp;
+    float Temp;
     Temp = myMHZ19.getTemperature();                     // Request Temperature (as Celsius)
     Serial.print("Temperature (C): ");                  
     Serial.println(CO2);
@@ -184,12 +184,11 @@ if (millis() - getDataTimer >= 2000){
       lcd.print(" ");
     } else {
       lcd.print(bme.humidity);
-      lcd.print("% ");
+      lcd.print("%         ");
     }
     lcd.setCursor(8, 1);
     lcd.print(bme.temperature);
-    lcd.print("C");
+    lcd.print("C  ");
     getDataTimer = millis();
-    showflg++;
   }
 }
